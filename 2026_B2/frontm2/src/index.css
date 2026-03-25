@@ -1,0 +1,25 @@
+body, head {
+  width: 100%;
+  height: 100%;
+  background: #ac6aee;
+}
+
+.container {
+  width: auto;
+  height: auto; 
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  color: #4c96d6;
+  background-color: #e4d0f6;
+  text-align: center;
+}
+
+.container2 {
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #dab4fb;
+}
+
+

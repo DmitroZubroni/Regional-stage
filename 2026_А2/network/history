@@ -1,0 +1,2 @@
+eth.accounts
+eth.getBalance(eth.accounts[2])
