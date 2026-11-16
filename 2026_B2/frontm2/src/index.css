@@ -1,15 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
-
-:root {
-  --color-canvas: #080D1A;
-  --color-surface-1: #0F172A;
-  --color-surface-2: #1E293B;
-  --color-surface-3: #334155;
-  --color-cobalt: #2563EB;
-  --color-cyan: #38BDF8;
-  --color-gold: #F59E0B;
-  --color-emerald: #10B981;
-}
+@import "./tokens.css";
 
 * {
   box-sizing: border-box;
@@ -19,18 +9,22 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-canvas);
-  color: #F8FAFC;
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* WCAG 2.2 AA Focus Ring (Rule Д2) */
 :focus-visible {
-  outline: 2px solid var(--color-cyan) !important;
+  outline: 2px solid var(--cyan) !important;
   outline-offset: 2px !important;
+  border-radius: 6px;
 }
 
 /* Reduced Motion (Rule Д8, У11) */
@@ -49,20 +43,18 @@ body {
   padding: 1.5rem 1rem 3.5rem 1rem;
   background: transparent !important;
   color: inherit !important;
-  text-align: left !important;
 }
 
-/* Header */
 .champ-header {
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--surface-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  border-bottom: 1px solid var(--border);
   padding: 0.75rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--shadow-card);
 }
 
 .champ-nav-link {
@@ -75,61 +67,55 @@ body {
   border-radius: 0.75rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #94A3B8;
+  color: var(--text-muted);
   text-decoration: none;
   transition: all 0.15s ease;
 }
 
 .champ-nav-link:hover {
-  color: #F8FAFC;
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  background: var(--surface-2);
 }
 
 .champ-nav-link.active {
-  color: #38BDF8;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  border: 1px solid var(--border);
 }
 
-/* Cards */
 .champ-card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--card-gradient);
+  border: 1px solid var(--border);
   border-radius: 1.125rem;
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-card);
   backdrop-filter: blur(12px);
   transition: all 0.2s ease;
   overflow: hidden;
+  color: var(--text);
 }
 
 .champ-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 12px 30px -8px rgba(56, 189, 248, 0.15);
+  border-color: var(--cyan);
+  box-shadow: var(--shadow-hover);
 }
 
-/* Buttons */
 .champ-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  color: var(--on-primary) !important;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
   border-radius: 0.875rem;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  box-shadow: 0 0 18px rgba(37, 99, 235, 0.35);
+  border: 1px solid var(--cyan);
+  box-shadow: var(--primary-glow);
   transition: all 0.15s ease;
   text-decoration: none;
-}
-
-.champ-btn-primary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
-  color: #FFFFFF;
+  cursor: pointer;
 }
 
 .champ-btn-secondary {
@@ -138,43 +124,35 @@ body {
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
-  background: #1E293B;
-  color: #E2E8F0;
+  background: var(--surface-2);
+  color: var(--text) !important;
   font-weight: 600;
   font-size: 0.875rem;
   padding: 0.625rem 1.25rem;
   border-radius: 0.875rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   transition: all 0.15s ease;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.champ-btn-secondary:hover {
-  background: #334155;
-  color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Inputs */
 .champ-input {
   width: 100%;
   min-height: 44px;
-  background: #0F172A;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--surface);
+  border: 1px solid var(--field-border);
   border-radius: 0.875rem;
   padding: 0.625rem 1rem;
-  color: #F8FAFC;
+  color: var(--text);
   font-size: 0.9rem;
-  transition: all 0.15s ease;
 }
 
 .champ-input:focus {
   outline: none;
-  border-color: #38BDF8;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  border-color: var(--cyan);
+  box-shadow: var(--cyan-glow);
 }
 
-/* Badges */
 .champ-badge-cyan {
   display: inline-flex;
   align-items: center;
@@ -183,9 +161,9 @@ body {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: var(--cyan-soft);
+  color: var(--cyan-text);
+  border: 1px solid var(--cyan);
 }
 
 .champ-badge-gold {
@@ -196,9 +174,9 @@ body {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(245, 158, 11, 0.15);
-  color: #FBBF24;
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: var(--gold-soft);
+  color: var(--gold-text);
+  border: 1px solid var(--gold);
 }
 
 .champ-badge-emerald {
@@ -209,13 +187,21 @@ body {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(16, 185, 129, 0.15);
-  color: #34D399;
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: var(--success-soft);
+  color: var(--success-text);
+  border: 1px solid var(--success);
 }
 
 .mono-champ {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-variant-numeric: tabular-nums;
   word-break: break-all;
+}
+
+.text-theme-main {
+  color: var(--text) !important;
+}
+
+.text-theme-muted {
+  color: var(--text-muted) !important;
 }

@@ -3,9 +3,9 @@ import GetVotes from "./GetVotes.jsx";
 
 const ProposalCard = ({ proposalId }) => {
   return (
-    <div className="champ-card p-4 p-md-5">
+    <div className="champ-card p-4 p-md-5 mb-4">
       <GetProposal proposalId={proposalId} />
-      <hr className="my-4 border-secondary border-opacity-25" />
+      <hr className="my-4 border-theme" />
       <GetVotes proposalId={proposalId} />
     </div>
   );
