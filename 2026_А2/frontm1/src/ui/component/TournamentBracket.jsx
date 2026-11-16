@@ -201,21 +201,21 @@ export default function TournamentBracket() {
           <button
             onClick={() => setActiveTab("bracket")}
             className={`champ-tab-btn ${activeTab === "bracket" ? "active" : ""}`}
-            style={{ minHeight: 38, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
+            style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
             📊 {typograph("Сетка плей-офф")}
           </button>
           <button
             onClick={() => setActiveTab("podium")}
             className={`champ-tab-btn ${activeTab === "podium" ? "active" : ""}`}
-            style={{ minHeight: 38, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
+            style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
             🏆 {typograph("Пьедестал")}
           </button>
           <button
             onClick={() => setActiveTab("table")}
             className={`champ-tab-btn ${activeTab === "table" ? "active" : ""}`}
-            style={{ minHeight: 38, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
+            style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
             📋 {typograph("Рейтинг регионов")}
           </button>

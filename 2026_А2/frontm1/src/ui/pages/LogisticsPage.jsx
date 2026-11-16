@@ -158,28 +158,28 @@ export default function LogisticsPage() {
               <button
                 onClick={() => setActiveTab("postals")}
                 className={`champ-tab-btn ${activeTab === "postals" ? "active" : ""}`}
-                style={{ minHeight: 40 }}
+                style={{ minHeight: 44 }}
               >
                 📦 {typograph("Почтовые посылки")}
               </button>
               <button
                 onClick={() => setActiveTab("new-postal")}
                 className={`champ-tab-btn ${activeTab === "new-postal" ? "active" : ""}`}
-                style={{ minHeight: 40 }}
+                style={{ minHeight: 44 }}
               >
                 ➕ {typograph("Оформить отправление")}
               </button>
               <button
                 onClick={() => setActiveTab("transfers")}
                 className={`champ-tab-btn ${activeTab === "transfers" ? "active" : ""}`}
-                style={{ minHeight: 40 }}
+                style={{ minHeight: 44 }}
               >
                 💸 {typograph("Денежные переводы")}
               </button>
               <button
                 onClick={() => setActiveTab("blockchain")}
                 className={`champ-tab-btn ${activeTab === "blockchain" ? "active" : ""}`}
-                style={{ minHeight: 40 }}
+                style={{ minHeight: 44 }}
               >
                 ⛓️ {typograph("Телеметрия сети")}
               </button>
@@ -204,7 +204,7 @@ export default function LogisticsPage() {
                     placeholder="Поиск по трек-номеру или городу..."
                     value={searchCode}
                     onChange={(e) => setSearchCode(e.target.value)}
-                    style={{ maxWidth: 280, minHeight: 40, fontSize: "0.82rem" }}
+                    style={{ maxWidth: 280, minHeight: 44, fontSize: "0.82rem" }}
                   />
                 </div>
 

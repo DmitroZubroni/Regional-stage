@@ -48,42 +48,42 @@ const FunctionPage = () => {
           <button
             onClick={() => setActiveTab("create")}
             className={`champ-tab-btn ${activeTab === "create" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             📝 {typograph("Создать предложение")}
           </button>
           <button
             onClick={() => setActiveTab("vote")}
             className={`champ-tab-btn ${activeTab === "vote" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             🗳️ {typograph("Голосование")}
           </button>
           <button
             onClick={() => setActiveTab("buy")}
             className={`champ-tab-btn ${activeTab === "buy" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             🪙 {typograph("Купить GERDA")}
           </button>
           <button
             onClick={() => setActiveTab("delegate")}
             className={`champ-tab-btn ${activeTab === "delegate" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             🤝 {typograph("Делегирование")}
           </button>
           <button
             onClick={() => setActiveTab("execute")}
             className={`champ-tab-btn ${activeTab === "execute" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             ⚡ {typograph("Исполнить")}
           </button>
           <button
             onClick={() => setActiveTab("cancel")}
             className={`champ-tab-btn ${activeTab === "cancel" ? "active" : ""}`}
-            style={{ minHeight: 40, fontSize: "0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
             🛑 {typograph("Отменить")}
           </button>

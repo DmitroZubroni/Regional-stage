@@ -275,7 +275,7 @@ export function StateSwitcherBar({ activeState, onChangeState }) {
             key={s.key}
             onClick={() => onChangeState(s.key)}
             className={`champ-tab-btn ${activeState === s.key ? "active" : ""}`}
-            style={{ minHeight: 36, fontSize: "0.78rem", padding: "0.3rem 0.75rem" }}
+            style={{ minHeight: 44, fontSize: "0.78rem", padding: "0.3rem 0.75rem" }}
           >
             <span>{s.icon}</span>
             <span>{typograph(s.label)}</span>

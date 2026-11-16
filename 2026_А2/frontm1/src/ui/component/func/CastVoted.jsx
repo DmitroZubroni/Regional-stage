@@ -91,12 +91,15 @@ const CastVoted = () => {
 
         {feedback && (
           <div
-            className={`p-3 rounded-3 mt-3 ${
+            role={feedback.type === "success" ? "status" : "alert"}
+            aria-live="polite"
+            className={`p-3 rounded-3 mt-3 d-flex align-items-start gap-2 ${
               feedback.type === "success" ? "champ-badge-emerald" : "champ-badge-danger"
             }`}
             style={{ width: "100%", fontSize: "0.85rem" }}
           >
-            {typograph(feedback.text)}
+            <span aria-hidden="true">{feedback.type === "success" ? "✓" : "⚠️"}</span>
+            <span>{typograph(feedback.text)}</span>
           </div>
         )}
 

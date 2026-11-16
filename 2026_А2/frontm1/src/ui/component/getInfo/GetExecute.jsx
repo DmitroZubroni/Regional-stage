@@ -41,7 +41,7 @@ const GetExecute = () => {
           </p>
         </div>
 
-        <Link to="/proposal" className="champ-btn-secondary py-2 px-3" style={{ minHeight: 40, fontSize: "0.82rem" }}>
+        <Link to="/proposal" className="champ-btn-secondary py-2 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
           <span>🗳️ {typograph("Текущие голосования")}</span>
         </Link>
       </div>

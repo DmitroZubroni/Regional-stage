@@ -2,6 +2,19 @@ import { useState, useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
 import { typograph } from "../../../core/typograph";
+import Select from "../Select.jsx";
+
+const QUORUM_OPTIONS = [
+  { value: 1, label: "1 — Простое большинство (51%)" },
+  { value: 2, label: "2 — Супербольшинство (66%)" },
+  { value: 3, label: "3 — Консенсус экспертов (75%)" },
+];
+
+const PROPOSAL_TYPE_OPTIONS = [
+  { value: 0, label: "0 — Фиксация регламента" },
+  { value: 1, label: "1 — Выпуск токенов" },
+  { value: 2, label: "2 — Интеграция модулей" },
+];
 
 const CreateProposal = () => {
   const { wallet } = useContext(AtlantContext);
@@ -94,44 +107,35 @@ const CreateProposal = () => {
           </div>
 
           <div className="col-sm-4">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
-              {typograph("Тип кворума")}
-            </label>
-            <select
-              className="champ-input"
+            <Select
+              label={typograph("Тип кворума")}
+              options={QUORUM_OPTIONS}
               value={formData.quorumeType}
-              onChange={(e) => setFormData({ ...formData, quorumeType: Number(e.target.value) })}
-            >
-              <option value={1}>{typograph("1 — Простое большинство (51%)")}</option>
-              <option value={2}>{typograph("2 — Супербольшинство (66%)")}</option>
-              <option value={3}>{typograph("3 — Консенсус экспертов (75%)")}</option>
-            </select>
+              onChange={(v) => setFormData({ ...formData, quorumeType: v })}
+            />
           </div>
 
           <div className="col-sm-4">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
-              {typograph("Тип предложения")}
-            </label>
-            <select
-              className="champ-input"
+            <Select
+              label={typograph("Тип предложения")}
+              options={PROPOSAL_TYPE_OPTIONS}
               value={formData.proposalType}
-              onChange={(e) => setFormData({ ...formData, proposalType: Number(e.target.value) })}
-            >
-              <option value={0}>{typograph("0 — Фиксация регламента")}</option>
-              <option value={1}>{typograph("1 — Выпуск токенов")}</option>
-              <option value={2}>{typograph("2 — Интеграция модулей")}</option>
-            </select>
+              onChange={(v) => setFormData({ ...formData, proposalType: v })}
+            />
           </div>
         </div>
 
         {feedback && (
           <div
-            className={`p-3 rounded-3 mt-3 ${
+            role={feedback.type === "success" ? "status" : "alert"}
+            aria-live="polite"
+            className={`p-3 rounded-3 mt-3 d-flex align-items-start gap-2 ${
               feedback.type === "success" ? "champ-badge-emerald" : "champ-badge-danger"
             }`}
             style={{ width: "100%", fontSize: "0.85rem" }}
           >
-            {typograph(feedback.text)}
+            <span aria-hidden="true">{feedback.type === "success" ? "✓" : "⚠️"}</span>
+            <span>{typograph(feedback.text)}</span>
           </div>
         )}
 

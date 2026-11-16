@@ -134,13 +134,13 @@ export default function StatesDemoPage() {
                   )}
                 </p>
                 <div className="d-flex align-items-center gap-2">
-                  <button onClick={() => setActiveState("loading")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.8rem" }}>
+                  <button onClick={() => setActiveState("loading")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.8rem" }}>
                     Эмулировать загрузку
                   </button>
-                  <button onClick={() => setActiveState("empty")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.8rem" }}>
+                  <button onClick={() => setActiveState("empty")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.8rem" }}>
                     Эмулировать пусто
                   </button>
-                  <button onClick={() => setActiveState("error")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.8rem", borderColor: "var(--danger)" }}>
+                  <button onClick={() => setActiveState("error")} className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.8rem", borderColor: "var(--danger)" }}>
                     Эмулировать ошибку
                   </button>
                 </div>

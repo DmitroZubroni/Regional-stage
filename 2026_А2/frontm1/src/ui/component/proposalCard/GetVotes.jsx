@@ -97,7 +97,7 @@ const GetVotes = ({ proposalId }) => {
             disabled={votingAction}
             className="champ-btn-primary py-1.5 px-3"
             style={{
-              minHeight: 38,
+              minHeight: 44,
               fontSize: "0.82rem",
               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
               borderColor: "#34d399",
@@ -109,7 +109,7 @@ const GetVotes = ({ proposalId }) => {
             onClick={() => handleVote(false)}
             disabled={votingAction}
             className="champ-btn-secondary py-1.5 px-3"
-            style={{ minHeight: 38, fontSize: "0.82rem", borderColor: "var(--danger)" }}
+            style={{ minHeight: 44, fontSize: "0.82rem", borderColor: "var(--danger)" }}
           >
             👎 {typograph("Проголосовать ПРОТИВ")}
           </button>

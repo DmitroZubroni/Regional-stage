@@ -167,7 +167,7 @@ const Proposal = () => {
                       placeholder="Поиск по ID..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      style={{ maxWidth: 180, minHeight: 38, fontSize: "0.82rem" }}
+                      style={{ maxWidth: 180, minHeight: 44, fontSize: "0.82rem" }}
                     />
                     <span className="champ-badge-gold">
                       {filteredProposals.length} {typograph("предложений")}

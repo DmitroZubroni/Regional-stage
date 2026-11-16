@@ -139,7 +139,7 @@ const Header = () => {
               <button
                 onClick={() => switchAccount(person.isDAO ? "guest" : "expert")}
                 className="champ-btn-secondary py-1.5 px-2.5"
-                style={{ minHeight: 40, fontSize: "0.78rem" }}
+                style={{ minHeight: 44, fontSize: "0.78rem" }}
                 title="Сменить роль (Эксперт DAO / Гость) для тестирования прав"
               >
                 {person.isDAO ? "Роль: Эксперт" : "Роль: Гость"}
@@ -148,7 +148,7 @@ const Header = () => {
               <button
                 onClick={logout}
                 className="champ-btn-secondary py-1.5 px-3"
-                style={{ minHeight: 40, fontSize: "0.78rem" }}
+                style={{ minHeight: 44, fontSize: "0.78rem" }}
                 title="Выйти из аккаунта"
               >
                 {typograph("Выйти")}
@@ -158,7 +158,7 @@ const Header = () => {
             <button
               onClick={login}
               className="champ-btn-primary py-1.5 px-3.5"
-              style={{ minHeight: 40, fontSize: "0.82rem" }}
+              style={{ minHeight: 44, fontSize: "0.82rem" }}
             >
               <span>🔑</span>
               <span>{typograph("Войти (MetaMask / Демо)")}</span>

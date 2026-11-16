@@ -43,7 +43,7 @@ const GetDelegates = () => {
           </p>
         </div>
 
-        <Link to="/func" className="champ-btn-primary py-2 px-3" style={{ minHeight: 40, fontSize: "0.82rem" }}>
+        <Link to="/func" className="champ-btn-primary py-2 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
           <span>➕ {typograph("Делегировать голоса")}</span>
         </Link>
       </div>

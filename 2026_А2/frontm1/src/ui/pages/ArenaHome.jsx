@@ -111,7 +111,7 @@ export default function ArenaHome() {
                   <span className="mono-champ fw-bold text-cyan" style={{ fontSize: "0.82rem" }}>
                     Solidity · Web3 · React
                   </span>
-                  <Link to="/proposal" className="champ-btn-primary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.82rem" }}>
+                  <Link to="/proposal" className="champ-btn-primary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
                     {typograph("Открыть модуль →")}
                   </Link>
                 </div>
@@ -139,7 +139,7 @@ export default function ArenaHome() {
                   <span className="mono-champ fw-bold text-cyan" style={{ fontSize: "0.82rem" }}>
                     Waves Enterprise · Docker API
                   </span>
-                  <Link to="/logistics" className="champ-btn-primary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.82rem" }}>
+                  <Link to="/logistics" className="champ-btn-primary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
                     {typograph("Открыть модуль →")}
                   </Link>
                 </div>
@@ -167,7 +167,7 @@ export default function ArenaHome() {
                   <span className="mono-champ fw-bold text-gold" style={{ fontSize: "0.82rem" }}>
                     Hardhat · Slither · Unit Tests
                   </span>
-                  <Link to="/func" className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.82rem" }}>
+                  <Link to="/func" className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
                     {typograph("Тестировать функции →")}
                   </Link>
                 </div>
@@ -195,7 +195,7 @@ export default function ArenaHome() {
                   <span className="mono-champ fw-bold text-theme-main" style={{ fontSize: "0.82rem" }}>
                     Keynote · Live Demo
                   </span>
-                  <Link to="/cabinet" className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 38, fontSize: "0.82rem" }}>
+                  <Link to="/cabinet" className="champ-btn-secondary py-1.5 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
                     {typograph("Панель эксперта →")}
                   </Link>
                 </div>

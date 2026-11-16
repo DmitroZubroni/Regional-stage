@@ -62,11 +62,39 @@ export default function Championship3DArena({ onSelectModule }) {
   const [lighting, setLighting] = useState("championship"); // championship, cyber, gold
   const [rotation, setRotation] = useState(0);
 
+  // Rule Д8: respect prefers-reduced-motion — the previous version drove this
+  // rotation from a raw setInterval, so the global CSS `@media (prefers-reduced-motion)`
+  // kill-switch in index.css (which only stops CSS animations/transitions)
+  // never reached it, and it also kept re-rendering forever even when the
+  // tab was in the background. Both are fixed here.
   useEffect(() => {
-    const timer = setInterval(() => {
-      setRotation((prev) => (prev + 1) % 360);
-    }, 60);
-    return () => clearInterval(timer);
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return; // no autoplaying motion for this user
+
+    let timer = null;
+    const start = () => {
+      if (timer) return;
+      timer = setInterval(() => {
+        setRotation((prev) => (prev + 1) % 360);
+      }, 60);
+    };
+    const stop = () => {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = null;
+    };
+
+    const handleVisibility = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
+    if (!document.hidden) start();
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, []);
 
   return (
@@ -97,21 +125,21 @@ export default function Championship3DArena({ onSelectModule }) {
             <button
               onClick={() => setViewMode("isometric")}
               className={`champ-tab-btn ${viewMode === "isometric" ? "active" : ""}`}
-              style={{ minHeight: 38, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
+              style={{ minHeight: 44, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
             >
               {typograph("Изометрия")}
             </button>
             <button
               onClick={() => setViewMode("podium")}
               className={`champ-tab-btn ${viewMode === "podium" ? "active" : ""}`}
-              style={{ minHeight: 38, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
+              style={{ minHeight: 44, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
             >
               {typograph("Пьедестал")}
             </button>
             <button
               onClick={() => setViewMode("top")}
               className={`champ-tab-btn ${viewMode === "top" ? "active" : ""}`}
-              style={{ minHeight: 38, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
+              style={{ minHeight: 44, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
             >
               {typograph("План")}
             </button>
@@ -124,7 +152,7 @@ export default function Championship3DArena({ onSelectModule }) {
               )
             }
             className="champ-btn-secondary"
-            style={{ minHeight: 38, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
+            style={{ minHeight: 44, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
             title="Сменить схему неонового освещения арены"
           >
             💡 {typograph(lighting === "championship" ? "Кобальт" : lighting === "gold" ? "Золото" : "Кибер")}
@@ -136,7 +164,7 @@ export default function Championship3DArena({ onSelectModule }) {
       <div
         className="position-relative rounded-4 p-3 mb-4 d-flex align-items-center justify-content-center"
         style={{
-          minHeight: 380,
+          minHeight: 440,
           background:
             lighting === "championship"
               ? "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, rgba(15, 23, 42, 0.4) 70%, transparent 100%)"
@@ -417,7 +445,7 @@ export default function Championship3DArena({ onSelectModule }) {
             <button
               onClick={() => onSelectModule(selectedSector.letter)}
               className="champ-btn-primary"
-              style={{ minHeight: 40, fontSize: "0.85rem", padding: "0.5rem 1rem" }}
+              style={{ minHeight: 44, fontSize: "0.85rem", padding: "0.5rem 1rem" }}
             >
               <span>{typograph(`Открыть задачи ${selectedSector.letter}`)}</span>
               <span>→</span>
