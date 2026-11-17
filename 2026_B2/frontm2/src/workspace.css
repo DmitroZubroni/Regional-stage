@@ -54,3 +54,9 @@ h1.fs-3,h1.fs-4 {font-size:clamp(30px,3vw,36px)!important;}
 
 .form-control.champ-input::placeholder {color:var(--text-dim);opacity:1;} .p-3\.5 {padding:16px;} .px-2\.5 {padding-left:12px;padding-right:12px;} .px-3\.5 {padding-left:16px;padding-right:16px;} .px-1\.5 {padding-left:8px;padding-right:8px;} .py-1\.5 {padding-top:8px;padding-bottom:8px;} .py-2\.5 {padding-top:12px;padding-bottom:12px;} .py-0\.5 {padding-top:4px;padding-bottom:4px;}
 .champ-card:has(form) {overflow:visible;} main>div>div>p,main>div>p {font-size:16px!important;} .champ-header .mono-champ {font-variant-numeric:tabular-nums;}
+
+/* Keep the postal navigation and session controls on one desktop row. */
+@media (min-width: 1280px) {
+  .champ-header > div { grid-template-columns: auto 1fr auto; }
+  .champ-header > div > div:last-child { grid-column: auto; }
+}

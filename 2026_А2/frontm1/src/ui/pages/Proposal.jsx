@@ -103,7 +103,7 @@ const Proposal = () => {
         </section>
 
         {/* Rule У1 Demonstration Toolbar */}
-        <details className="preview-states"><summary>Предпросмотр состояний интерфейса</summary><p>Демонстрационные сообщения не отражают состояние транзакций.</p><StateSwitcherBar activeState={activeState} onChangeState={setActiveState} /></details>
+        {["review", "dev"].some(key => new URLSearchParams(window.location.search).has(key)) && (<details className="preview-states"><summary>Предпросмотр состояний интерфейса</summary><p>Демонстрационные сообщения не отражают состояние транзакций.</p><StateSwitcherBar activeState={activeState} onChangeState={setActiveState} /></details>)}
 
         {/* Dynamic Render based on Active State */}
         {activeState === "loading" && <LoadingSkeleton count={3} />}

@@ -42,7 +42,7 @@ const routes = [
   },
   {
     path: "/states-demo",
-    element: <StatesDemoPage />,
+    element: ["review", "dev"].some(key => new URLSearchParams(window.location.search).has(key)) ? <StatesDemoPage /> : <ArenaHome />,
   },
 ];
 
