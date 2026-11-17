@@ -1,3 +1,4 @@
+import Icon from "../component/Icon.jsx";
 import Header from "../component/Header.jsx";
 import { useContext } from "react";
 import { AtlantContext } from "../../core/context.jsx";
@@ -36,7 +37,7 @@ const Person = () => {
                 className="champ-btn-primary"
                 style={{ minHeight: 44, padding: "0.625rem 1.5rem" }}
               >
-                <span>🦊</span>
+                <span><Icon kind="wallet" /></span>
                 <span>{typograph("Подключить MetaMask")}</span>
               </button>
               <button
@@ -44,7 +45,7 @@ const Person = () => {
                 className="champ-btn-gold"
                 style={{ minHeight: 44, padding: "0.625rem 1.5rem" }}
               >
-                <span>⭐</span>
+                <span><Icon kind="coin" /></span>
                 <span>{typograph("Демо: участник DAO")}</span>
               </button>
               <button
@@ -52,7 +53,7 @@ const Person = () => {
                 className="champ-btn-secondary"
                 style={{ minHeight: 44, padding: "0.625rem 1.5rem" }}
               >
-                <span>👤</span>
+                <span><Icon kind="user" /></span>
                 <span>{typograph("Демо: гость")}</span>
               </button>
             </div>

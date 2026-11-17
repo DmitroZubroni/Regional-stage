@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import React from "react";
 import { typograph } from "../../core/typograph";
 
@@ -31,7 +32,7 @@ export function EmptyState({
           fontSize: 26,
         }}
       >
-        {icon || <span>🏆</span>}
+        {icon || <span><Icon kind="document" /></span>}
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
@@ -158,7 +159,7 @@ export function ErrorState({
           color: "var(--danger-text)",
         }}
       >
-        ⚠️
+        <Icon kind="warning" />
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
@@ -179,7 +180,7 @@ export function ErrorState({
           className="champ-btn-secondary"
           style={{ minHeight: 44, fontSize: "0.875rem", borderColor: "var(--danger)" }}
         >
-          🔄 {typograph(retryLabel)}
+          <Icon kind="retry" /> {typograph(retryLabel)}
         </button>
       )}
     </div>
@@ -215,7 +216,7 @@ export function SuccessState({
           color: "var(--success-text)",
         }}
       >
-        ✓
+        <Icon kind="check" />
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
@@ -265,11 +266,11 @@ export function StateSwitcherBar({ activeState, onChangeState }) {
 
       <div className="d-flex align-items-center gap-1.5 flex-wrap">
         {[
-          { key: "normal", label: "Штатный (Success/Data)", icon: "🟢" },
-          { key: "loading", label: "Загрузка (Skeleton)", icon: "⏳" },
-          { key: "empty", label: "Пусто (EmptyState)", icon: "📭" },
-          { key: "error", label: "Ошибка (Error + Retry)", icon: "⚠️" },
-          { key: "success", label: "Успех (Action Done)", icon: "✅" },
+          { key: "normal", label: "Штатный (Success/Data)", icon: <Icon kind="check" /> },
+          { key: "loading", label: "Загрузка (Skeleton)", icon: <Icon kind="retry" /> },
+          { key: "empty", label: "Пусто (EmptyState)", icon: <Icon kind="post" /> },
+          { key: "error", label: "Ошибка (Error + Retry)", icon: <Icon kind="warning" /> },
+          { key: "success", label: "Успех (Action Done)", icon: <Icon kind="check" /> },
         ].map((s) => (
           <button
             key={s.key}

@@ -68,7 +68,7 @@ const BuyRTK = () => {
             }`}
             style={{ width: "100%", fontSize: "0.85rem" }}
           >
-            <span aria-hidden="true">{feedback.type === "success" ? "✓" : "⚠️"}</span>
+            <span aria-hidden="true">{feedback.type === "success" ? <Icon kind="check" /> : <Icon kind="warning" />}</span>
             <span>{typograph(feedback.text)}</span>
           </div>
         )}

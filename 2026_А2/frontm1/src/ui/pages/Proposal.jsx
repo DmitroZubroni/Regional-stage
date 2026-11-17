@@ -1,3 +1,4 @@
+import Icon from "../component/Icon.jsx";
 import Header from "../component/Header.jsx";
 import { useEffect, useState } from "react";
 import VotingService from "../../servise/VotingService.jsx";
@@ -91,7 +92,7 @@ const Proposal = () => {
                   className="champ-btn-primary ms-auto my-auto"
                   style={{ minHeight: 44 }}
                 >
-                  <span>➕ {typograph("Создать предложение")}</span>
+                  <span><Icon kind="plus" /> {typograph("Создать предложение")}</span>
                 </Link>
               </div>
             </div>

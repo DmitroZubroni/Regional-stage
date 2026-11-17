@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import { typograph } from "../../../core/typograph";
@@ -27,7 +28,7 @@ const GetPerson = () => {
               border: "2px solid #ffffff",
             }}
           >
-            👨‍💻
+            <Icon kind="user" />
           </div>
           <div>
             <div className="d-flex align-items-center gap-2 mb-1">

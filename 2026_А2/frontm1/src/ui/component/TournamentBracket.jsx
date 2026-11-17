@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import React, { useState, useEffect } from "react";
 import { typograph } from "../../core/typograph";
 
@@ -114,7 +115,7 @@ export default function TournamentBracket() {
               boxShadow: "var(--primary-glow)",
             }}
           >
-            ⏱️
+            <Icon kind="retry" />
           </div>
           <div>
             <div className="d-flex align-items-center gap-2 mb-1">
@@ -181,7 +182,7 @@ export default function TournamentBracket() {
             style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.85rem" }}
             title="Пауза / запуск таймера соревнований"
           >
-            {timerRunning ? "⏸ Пауза" : "▶ Старт"}
+            {timerRunning ? <><Icon kind="pause" /> Пауза</> : <><Icon kind="play" /> Старт</>}
           </button>
         </div>
       </div>
@@ -203,21 +204,21 @@ export default function TournamentBracket() {
             className={`champ-tab-btn ${activeTab === "bracket" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
-            📊 {typograph("Сетка плей-офф")}
+            <Icon kind="chart" /> {typograph("Сетка плей-офф")}
           </button>
           <button
             onClick={() => setActiveTab("podium")}
             className={`champ-tab-btn ${activeTab === "podium" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
-            🏆 {typograph("Пьедестал")}
+            <Icon kind="award" /> {typograph("Пьедестал")}
           </button>
           <button
             onClick={() => setActiveTab("table")}
             className={`champ-tab-btn ${activeTab === "table" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.82rem", padding: "0.4rem 0.9rem" }}
           >
-            📋 {typograph("Рейтинг регионов")}
+            <Icon kind="document" /> {typograph("Рейтинг регионов")}
           </button>
         </div>
       </div>
@@ -309,7 +310,7 @@ export default function TournamentBracket() {
             {/* Column 3: Grand Final */}
             <div className="d-flex flex-column justify-content-center gap-3 flex-grow-1">
               <div className="text-gold fw-bold mono-champ mb-2" style={{ fontSize: "0.78rem" }}>
-                🏆 ГРАНД-ФИНАЛ ЧЕМПИОНАТА
+                <Icon kind="award" /> ГРАНД-ФИНАЛ ЧЕМПИОНАТА
               </div>
               <div
                 className="p-4 rounded-4 position-relative overflow-hidden"
@@ -321,7 +322,7 @@ export default function TournamentBracket() {
               >
                 <div className="d-flex align-items-center justify-content-between mb-3">
                   <span className="champ-badge-gold">ПОБЕДИТЕЛЬ 2026</span>
-                  <span className="fs-4">👑</span>
+                  <span className="fs-4"><Icon kind="award" /></span>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-2">
                   <div>
@@ -357,7 +358,7 @@ export default function TournamentBracket() {
           <div className="d-flex align-items-end justify-content-center gap-3 gap-md-4 text-center">
             {/* 2nd Place */}
             <div className="d-flex flex-column align-items-center" style={{ width: "28%" }}>
-              <div className="fs-2 mb-1">🥈</div>
+              <div className="fs-2 mb-1"><Icon kind="award" /></div>
               <div className="fw-bold text-theme-main mb-1" style={{ fontSize: "0.9rem" }}>
                 Татарстан (Иннополис)
               </div>
@@ -377,7 +378,7 @@ export default function TournamentBracket() {
 
             {/* 1st Place */}
             <div className="d-flex flex-column align-items-center" style={{ width: "34%" }}>
-              <div className="fs-1 mb-1 float-slow">🏆</div>
+              <div className="fs-1 mb-1 float-slow"><Icon kind="award" /></div>
               <div className="fw-bold text-theme-main mb-1" style={{ fontSize: "1.05rem" }}>
                 Москва (ИТ-хаб)
               </div>
@@ -398,7 +399,7 @@ export default function TournamentBracket() {
 
             {/* 3rd Place */}
             <div className="d-flex flex-column align-items-center" style={{ width: "28%" }}>
-              <div className="fs-2 mb-1">🥉</div>
+              <div className="fs-2 mb-1"><Icon kind="award" /></div>
               <div className="fw-bold text-theme-main mb-1" style={{ fontSize: "0.9rem" }}>
                 Санкт-Петербург
               </div>
@@ -434,7 +435,7 @@ export default function TournamentBracket() {
             <tbody>
               {LEADERBOARD.map((item) => (
                 <tr key={item.rank} className="border-bottom border-theme" style={{ background: "transparent" }}>
-                  <td className="fw-bold fs-5 mono-champ" style={{ background: "transparent" }}>{item.medal}</td>
+                  <td className="fw-bold fs-5 mono-champ" style={{ background: "transparent" }}>{item.rank <= 3 ? <Icon kind="award" /> : item.medal}</td>
                   <td style={{ background: "transparent" }}>
                     <div className="fw-bold text-theme-main">{item.name}</div>
                     <div className="text-theme-muted" style={{ fontSize: "0.75rem" }}>

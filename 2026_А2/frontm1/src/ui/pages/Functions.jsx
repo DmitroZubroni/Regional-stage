@@ -1,3 +1,4 @@
+import Icon from "../component/Icon.jsx";
 import Header from "../component/Header.jsx";
 import { useContext, useState } from "react";
 import { AtlantContext } from "../../core/context.jsx";
@@ -50,42 +51,42 @@ const FunctionPage = () => {
             className={`champ-tab-btn ${activeTab === "create" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            📝 {typograph("Создать предложение")}
+            <Icon kind="document" /> {typograph("Создать предложение")}
           </button>
           <button
             onClick={() => setActiveTab("vote")}
             className={`champ-tab-btn ${activeTab === "vote" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            🗳️ {typograph("Голосование")}
+            <Icon kind="vote" /> {typograph("Голосование")}
           </button>
           <button
             onClick={() => setActiveTab("buy")}
             className={`champ-tab-btn ${activeTab === "buy" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            🪙 {typograph("Купить GERDA")}
+            <Icon kind="coin" /> {typograph("Купить GERDA")}
           </button>
           <button
             onClick={() => setActiveTab("delegate")}
             className={`champ-tab-btn ${activeTab === "delegate" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            🤝 {typograph("Делегирование")}
+            <Icon kind="delegate" /> {typograph("Делегирование")}
           </button>
           <button
             onClick={() => setActiveTab("execute")}
             className={`champ-tab-btn ${activeTab === "execute" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            ⚡ {typograph("Исполнить")}
+            <Icon kind="execute" /> {typograph("Исполнить")}
           </button>
           <button
             onClick={() => setActiveTab("cancel")}
             className={`champ-tab-btn ${activeTab === "cancel" ? "active" : ""}`}
             style={{ minHeight: 44, fontSize: "0.85rem" }}
           >
-            🛑 {typograph("Отменить")}
+            <Icon kind="cancel" /> {typograph("Отменить")}
           </button>
         </div>
 

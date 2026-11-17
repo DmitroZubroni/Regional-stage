@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import React, { useState, useEffect } from "react";
 import { typograph } from "../../core/typograph";
 
@@ -155,7 +156,7 @@ export default function Championship3DArena({ onSelectModule }) {
             style={{ minHeight: 44, fontSize: "0.8rem", padding: "0.4rem 0.85rem" }}
             title="Сменить схему неонового освещения арены"
           >
-            💡 {typograph(lighting === "championship" ? "Кобальт" : lighting === "gold" ? "Золото" : "Кибер")}
+            <Icon kind="sun" /> {typograph(lighting === "championship" ? "Кобальт" : lighting === "gold" ? "Золото" : "Кибер")}
           </button>
         </div>
       </div>
@@ -412,8 +413,8 @@ export default function Championship3DArena({ onSelectModule }) {
           </p>
 
           <div className="d-flex align-items-center gap-3 text-theme-muted" style={{ fontSize: "0.78rem" }}>
-            <span>🛠️ {typograph(selectedSector.tech)}</span>
-            <span>👥 {selectedSector.participants} {typograph("участников")}</span>
+            <span><Icon kind="settings" /> {typograph(selectedSector.tech)}</span>
+            <span><Icon kind="user" /> {selectedSector.participants} {typograph("участников")}</span>
           </div>
         </div>
 

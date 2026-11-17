@@ -1,3 +1,4 @@
+import Icon from "../component/Icon.jsx";
 import React, { useState } from "react";
 import Header from "../component/Header.jsx";
 import { typograph } from "../../core/typograph";
@@ -110,12 +111,12 @@ export default function StatesDemoPage() {
             <div>
               <div className="p-3.5 rounded-3 mb-4" style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}>
                 <div className="d-flex align-items-center gap-2 text-theme-main fw-bold mb-1">
-                  <span>✓</span>
+                  <span><Icon kind="check" /></span>
                   <span>Штатный режим отображения данных готов к работе</span>
                 </div>
                 <p className="text-theme-muted mb-0" style={{ fontSize: "0.85rem" }}>
                   {typograph(
-                    "Используйте переключатель вверху страницы для проверки каждого из 4 состояний. Все цвета синхронизированы через токены и мгновенно адаптируются при переключении темы (☀️/🌙)."
+                    "Используйте переключатель вверху страницы для проверки каждого из 4 состояний. Все цвета синхронизированы через токены и мгновенно адаптируются при переключении темы (светлая/тёмная)."
                   )}
                 </p>
               </div>

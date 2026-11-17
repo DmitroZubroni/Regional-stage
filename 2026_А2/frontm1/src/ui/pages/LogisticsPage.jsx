@@ -1,3 +1,4 @@
+import Icon from "../component/Icon.jsx";
 import React, { useState } from "react";
 import Header from "../component/Header.jsx";
 import { typograph } from "../../core/typograph";
@@ -160,28 +161,28 @@ export default function LogisticsPage() {
                 className={`champ-tab-btn ${activeTab === "postals" ? "active" : ""}`}
                 style={{ minHeight: 44 }}
               >
-                📦 {typograph("Почтовые посылки")}
+                <Icon kind="parcel" /> {typograph("Почтовые посылки")}
               </button>
               <button
                 onClick={() => setActiveTab("new-postal")}
                 className={`champ-tab-btn ${activeTab === "new-postal" ? "active" : ""}`}
                 style={{ minHeight: 44 }}
               >
-                ➕ {typograph("Оформить отправление")}
+                <Icon kind="plus" /> {typograph("Оформить отправление")}
               </button>
               <button
                 onClick={() => setActiveTab("transfers")}
                 className={`champ-tab-btn ${activeTab === "transfers" ? "active" : ""}`}
                 style={{ minHeight: 44 }}
               >
-                💸 {typograph("Денежные переводы")}
+                <Icon kind="delegate" /> {typograph("Денежные переводы")}
               </button>
               <button
                 onClick={() => setActiveTab("blockchain")}
                 className={`champ-tab-btn ${activeTab === "blockchain" ? "active" : ""}`}
                 style={{ minHeight: 44 }}
               >
-                ⛓️ {typograph("Телеметрия сети")}
+                <Icon kind="network" /> {typograph("Телеметрия сети")}
               </button>
             </div>
 

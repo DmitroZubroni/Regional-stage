@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useContext, useEffect, useState } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
@@ -44,7 +45,7 @@ const GetDelegates = () => {
         </div>
 
         <Link to="/func" className="champ-btn-primary py-2 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
-          <span>➕ {typograph("Делегировать голоса")}</span>
+          <span><Icon kind="plus" /> {typograph("Делегировать голоса")}</span>
         </Link>
       </div>
 

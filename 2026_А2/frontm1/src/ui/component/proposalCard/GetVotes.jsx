@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useEffect, useState, useContext } from "react";
 import VotingService from "../../../servise/VotingService.jsx";
 import { AtlantContext } from "../../../core/context.jsx";
@@ -103,7 +104,7 @@ const GetVotes = ({ proposalId }) => {
               borderColor: "#34d399",
             }}
           >
-            👍 {typograph("Проголосовать ЗА")}
+            <Icon kind="check" /> {typograph("Проголосовать ЗА")}
           </button>
           <button
             onClick={() => handleVote(false)}
@@ -111,7 +112,7 @@ const GetVotes = ({ proposalId }) => {
             className="champ-btn-secondary py-1.5 px-3"
             style={{ minHeight: 44, fontSize: "0.82rem", borderColor: "var(--danger)" }}
           >
-            👎 {typograph("Проголосовать ПРОТИВ")}
+            <Icon kind="against" /> {typograph("Проголосовать ПРОТИВ")}
           </button>
         </div>
 

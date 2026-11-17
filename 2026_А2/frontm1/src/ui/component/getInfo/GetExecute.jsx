@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useEffect, useState } from "react";
 import VotingService from "../../../servise/VotingService.jsx";
 import { typograph } from "../../../core/typograph";
@@ -42,7 +43,7 @@ const GetExecute = () => {
         </div>
 
         <Link to="/proposal" className="champ-btn-secondary py-2 px-3" style={{ minHeight: 44, fontSize: "0.82rem" }}>
-          <span>🗳️ {typograph("Текущие голосования")}</span>
+          <span><Icon kind="vote" /> {typograph("Текущие голосования")}</span>
         </Link>
       </div>
 
@@ -73,7 +74,7 @@ const GetExecute = () => {
                     fontSize: 20,
                   }}
                 >
-                  ✓
+                  <Icon kind="check" />
                 </div>
                 <div>
                   <div className="d-flex align-items-center gap-2 mb-1">

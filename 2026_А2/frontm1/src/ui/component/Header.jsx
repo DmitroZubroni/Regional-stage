@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import { useContext } from "react";
 import { AtlantContext } from "../../core/context.jsx";
 import { useTheme } from "../../core/theme.js";
@@ -86,7 +87,7 @@ const Header = () => {
             aria-label={`Переключить на ${theme === "dark" ? "светлую" : "тёмную"} тему`}
             title={`Текущая тема: ${theme === "dark" ? "Тёмная" : "Светлая"}. Нажмите для смены`}
           >
-            <span style={{ fontSize: 18 }}>{theme === "dark" ? "☀️" : "🌙"}</span>
+            <span style={{ fontSize: 18 }}>{theme === "dark" ? <Icon kind="sun" /> : <Icon kind="moon" />}</span>
           </button>
 
           {/* Wallet / Authorization State */}
@@ -148,7 +149,7 @@ const Header = () => {
               className="champ-btn-primary py-1.5 px-3.5"
               style={{ minHeight: 44, fontSize: "0.82rem" }}
             >
-              <span>🔑</span>
+              <span><Icon kind="key" /></span>
               <span>{typograph("Войти (MetaMask / Демо)")}</span>
             </button>
           )}
