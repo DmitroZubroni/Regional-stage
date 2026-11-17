@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useState, useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
@@ -27,11 +28,11 @@ const BuyRTK = () => {
   return (
     <div className="champ-card p-4 p-md-5 mb-4">
       <div className="d-flex align-items-center gap-2.5 mb-2">
-        <span style={{ fontSize: 24 }}>🪙</span>
+        <Icon kind="document" />
         <div>
-          <h3 className="fs-5 fw-bold text-theme-main mb-0">
+          <h2 className="fs-5 fw-bold text-theme-main mb-0">
             {typograph("Приобретение наградных токенов GERDA")}
-          </h3>
+          </h2>
           <p className="text-theme-muted mb-0" style={{ fontSize: "0.82rem" }}>
             {typograph("Покупка токенов смарт-контракта для участия в пулах наград и валидации")}
           </p>

@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useEffect, useState } from "react";
 import VotingService from "../../../servise/VotingService.jsx";
 import { typograph } from "../../../core/typograph";
@@ -30,7 +31,7 @@ const GetProposal = ({ proposalId }) => {
         if (info) {
           setInfoProposal({
             title: info.title || `Голосование #${proposalId}`,
-            description: info.description || "Инициатива регионального этапа соревнований.",
+            description: info.description || "Описание предложения не указано.",
             proposer: info.proposer || info.target || "0x72d98788997e874819a3E6371f47Fe8E46348193",
             targets: info.targets || info.target || "0x72d98788997e874819a3E6371f47Fe8E46348193",
             values: info.values || info.value || 0,
@@ -57,7 +58,7 @@ const GetProposal = ({ proposalId }) => {
     <div>
       <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
         <div className="d-flex align-items-center gap-2.5">
-          <span style={{ fontSize: 24 }}>📋</span>
+          <Icon kind="document" />
           <div>
             <h3 className="fs-5 fw-bold text-theme-main mb-0">
               {typograph(infoProposal.title || `Голосование #${proposalId}`)}

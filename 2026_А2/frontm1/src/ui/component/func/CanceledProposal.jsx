@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useState, useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
@@ -26,11 +27,11 @@ const CanceledProposal = () => {
   return (
     <div className="champ-card p-4 p-md-5 mb-4">
       <div className="d-flex align-items-center gap-2.5 mb-2">
-        <span style={{ fontSize: 24 }}>🛑</span>
+        <Icon kind="document" />
         <div>
-          <h3 className="fs-5 fw-bold text-theme-main mb-0">
+          <h2 className="fs-5 fw-bold text-theme-main mb-0">
             {typograph("Отзыв и отмена предложения")}
-          </h3>
+          </h2>
           <p className="text-theme-muted mb-0" style={{ fontSize: "0.82rem" }}>
             {typograph("Доступно автору инициативы до момента достижения кворума")}
           </p>
@@ -39,10 +40,10 @@ const CanceledProposal = () => {
 
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="mb-3">
-          <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+          <label htmlFor="canceledproposal-field-1" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
             {typograph("ID предложения для отмены")}
           </label>
-          <input
+          <input id="canceledproposal-field-1"
             type="number"
             className="champ-input mono-champ"
             value={proposalId}

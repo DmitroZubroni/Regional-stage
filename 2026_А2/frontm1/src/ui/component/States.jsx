@@ -33,9 +33,9 @@ export function EmptyState({
       >
         {icon || <span>🏆</span>}
       </div>
-      <h3 className="fs-5 fw-bold text-theme-main mb-1.5">
+      <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
-      </h3>
+      </h2>
       <p className="text-theme-muted mx-auto mb-4" style={{ maxWidth: 460, fontSize: "0.875rem", lineHeight: 1.6 }}>
         {typograph(description)}
       </p>
@@ -160,9 +160,9 @@ export function ErrorState({
       >
         ⚠️
       </div>
-      <h3 className="fs-5 fw-bold text-theme-main mb-1.5">
+      <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
-      </h3>
+      </h2>
       <p className="text-theme-muted mx-auto mb-2" style={{ maxWidth: 440, fontSize: "0.875rem", lineHeight: 1.6 }}>
         {typograph(description)}
       </p>
@@ -217,9 +217,9 @@ export function SuccessState({
       >
         ✓
       </div>
-      <h3 className="fs-5 fw-bold text-theme-main mb-1.5">
+      <h2 className="fs-5 fw-bold text-theme-main mb-1.5">
         {typograph(title)}
-      </h3>
+      </h2>
       <p className="text-theme-muted mx-auto mb-2" style={{ maxWidth: 440, fontSize: "0.875rem", lineHeight: 1.6 }}>
         {typograph(description)}
       </p>

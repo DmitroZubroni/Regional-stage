@@ -43,21 +43,21 @@ const Proposal = () => {
     <div style={{ minHeight: "100vh" }}>
       <Header />
 
-      <main className="container">
+      <main id="main-content" className="container">
         {/* Championship Hero Banner */}
         <section className="champ-hero-card p-4 p-md-5 mb-5">
           <div className="row align-items-center g-4">
             <div className="col-lg-7">
               <div className="champ-badge-cyan mb-3">
                 <span className="pulse-glow">●</span>
-                <span>{typograph("Чемпионат «Профессионалы 2026»")}</span>
+                <span>{typograph("Предложения DAO")}</span>
               </div>
               <h1 className="fw-bold text-theme-main mb-2" style={{ fontSize: "clamp(1.75rem, 4vw, 2.35rem)" }}>
                 {typograph("Система консенсусного голосования и DAO")}
               </h1>
               <p className="text-theme-muted fs-6 mb-4" style={{ lineHeight: 1.6 }}>
                 {typograph(
-                  "Модуль децентрализованного голосования регионального этапа. Формирование предложений, учет кворума и автоматическое исполнение принятых смарт-контрактом решений."
+                  "Создавайте предложения, голосуйте и следите за исполнением решений DAO."
                 )}
               </p>
 
@@ -103,7 +103,7 @@ const Proposal = () => {
         </section>
 
         {/* Rule У1 Demonstration Toolbar */}
-        <StateSwitcherBar activeState={activeState} onChangeState={setActiveState} />
+        <details className="preview-states"><summary>Предпросмотр состояний интерфейса</summary><p>Демонстрационные сообщения не отражают состояние транзакций.</p><StateSwitcherBar activeState={activeState} onChangeState={setActiveState} /></details>
 
         {/* Dynamic Render based on Active State */}
         {activeState === "loading" && <LoadingSkeleton count={3} />}
@@ -131,7 +131,7 @@ const Proposal = () => {
         {activeState === "success" && (
           <SuccessState
             title="Голосование успешно завершено"
-            description="Кворум 66% достигнут, решение передано в очередь автоматического исполнения смарт-контракта."
+            description="Предпросмотр сообщения об успешном завершении голосования."
             actionLabel="Смотреть список исполненных"
             onAction={() => (window.location.href = "/execute")}
           />
@@ -161,14 +161,15 @@ const Proposal = () => {
                   </div>
 
                   <div className="d-flex align-items-center gap-3">
-                    <input
+                    <label htmlFor="proposal-search">Поиск по ID<input
+                      id="proposal-search"
                       type="text"
                       className="champ-input"
-                      placeholder="Поиск по ID..."
+                      placeholder="ID предложения"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       style={{ maxWidth: 180, minHeight: 44, fontSize: "0.82rem" }}
-                    />
+                    /></label>
                     <span className="champ-badge-gold">
                       {filteredProposals.length} {typograph("предложений")}
                     </span>

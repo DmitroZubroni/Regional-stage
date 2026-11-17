@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AtlantContext } from "../../core/context.jsx";
-import { useTheme } from "../../core/themeContext.jsx";
+import { useTheme } from "../../core/theme.js";
 import { NavLink, Link } from "react-router-dom";
 import { typograph } from "../../core/typograph";
 
 const Header = () => {
-  const { wallet, logout, login, switchAccount, person } = useContext(AtlantContext);
+  const { wallet, logout, login, switchAccount, person, isDemo } = useContext(AtlantContext);
   const { theme, toggleTheme } = useTheme();
 
   const shortAddress = wallet
@@ -13,7 +13,7 @@ const Header = () => {
     : "";
 
   return (
-    <header className="champ-header">
+    <><a className="skip-link" href="#main-content">К содержимому</a><header className="champ-header">
       <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 max-w-7xl mx-auto">
         {/* Championship Brand */}
         <Link to="/" className="d-flex align-items-center gap-2.5 text-decoration-none">
@@ -29,62 +29,50 @@ const Header = () => {
               border: "1px solid var(--cyan)",
             }}
           >
-            <span style={{ fontSize: 20 }}>🏆</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v16H5zM8 11l3 3 5-7" stroke="currentColor" strokeWidth="2"/></svg>
           </div>
           <div>
             <div className="fw-bold tracking-tight text-theme-main leading-tight" style={{ fontSize: "1.05rem" }}>
-              Профессионалы 2026
+              Совет DAO
             </div>
             <div className="text-theme-muted mono-champ" style={{ fontSize: "0.68rem", letterSpacing: "0.08em" }}>
-              РЕГИОНАЛЬНЫЙ ЭТАП · ЭТАЛОН КАЛИБР
+              Предложения и решения
             </div>
           </div>
         </Link>
 
         {/* Navigation Links */}
-        <nav aria-label="Разделы чемпионата" className="d-flex align-items-center gap-1.5 flex-wrap">
+        <nav aria-label="Разделы DAO" className="d-flex align-items-center gap-1.5 flex-wrap">
           <NavLink
             to="/"
             end
             className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
           >
-            🏆 {typograph("Арена")}
+            {typograph("Обзор")}
           </NavLink>
           <NavLink
             to="/proposal"
             className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
           >
-            🗳️ {typograph("Голосования")}
+            {typograph("Голосования")}
           </NavLink>
           <NavLink
             to="/cabinet"
             className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
           >
-            👤 {typograph("Кабинет")}
+            {typograph("Кабинет")}
           </NavLink>
           <NavLink
             to="/func"
             className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
           >
-            ⚡ {typograph("Функции DAO")}
+            {typograph("Функции DAO")}
           </NavLink>
           <NavLink
             to="/execute"
             className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
           >
-            📜 {typograph("Исполненные")}
-          </NavLink>
-          <NavLink
-            to="/logistics"
-            className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
-          >
-            📦 {typograph("Модуль B2")}
-          </NavLink>
-          <NavLink
-            to="/states-demo"
-            className={({ isActive }) => `champ-nav-link ${isActive ? "active" : ""}`}
-          >
-            🎛️ {typograph("У1 Лаборатория")}
+            {typograph("Исполненные")}
           </NavLink>
         </nav>
 
@@ -121,7 +109,7 @@ const Header = () => {
                   }}
                 />
                 <span className="mono-champ text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
-                  {shortAddress}
+                  {isDemo ? "Демо · " : ""}{shortAddress}
                 </span>
                 <span
                   className="badge px-1.5 py-0.5 rounded-pill"
@@ -142,7 +130,7 @@ const Header = () => {
                 style={{ minHeight: 44, fontSize: "0.78rem" }}
                 title="Сменить роль (Эксперт DAO / Гость) для тестирования прав"
               >
-                {person.isDAO ? "Роль: Эксперт" : "Роль: Гость"}
+                {person.isDAO ? "Демо: участник" : "Демо: гость"}
               </button>
 
               <button
@@ -166,7 +154,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    </header>
+    </header></>
   );
 };
 

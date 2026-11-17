@@ -17,7 +17,7 @@ const FunctionPage = () => {
     <div style={{ minHeight: "100vh" }}>
       <Header />
 
-      <main className="container">
+      <main id="main-content" className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
           <div>
             <div className="d-flex align-items-center gap-2 mb-1">

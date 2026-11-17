@@ -13,7 +13,7 @@ const Person = () => {
     <div style={{ minHeight: "100vh" }}>
       <Header />
 
-      <main className="container">
+      <main id="main-content" className="container">
         {!wallet ? (
           <div className="champ-hero-card p-4 p-md-5 my-5 text-center">
             <div className="mx-auto mb-4" style={{ maxWidth: 360 }}>
@@ -22,7 +22,7 @@ const Person = () => {
 
             <span className="champ-badge-gold mb-3">ВХОД В СИСТЕМУ</span>
             <h1 className="fs-3 fw-bold text-theme-main mb-2">
-              {typograph("Личный кабинет участника регионального этапа")}
+              {typograph("Личный кабинет DAO")}
             </h1>
             <p className="text-theme-muted mx-auto mb-4" style={{ maxWidth: 520, fontSize: "0.9rem", lineHeight: 1.6 }}>
               {typograph(
@@ -45,7 +45,7 @@ const Person = () => {
                 style={{ minHeight: 44, padding: "0.625rem 1.5rem" }}
               >
                 <span>⭐</span>
-                <span>{typograph("Демо-вход: Главный эксперт")}</span>
+                <span>{typograph("Демо: участник DAO")}</span>
               </button>
               <button
                 onClick={() => switchAccount("guest")}
@@ -53,7 +53,7 @@ const Person = () => {
                 style={{ minHeight: 44, padding: "0.625rem 1.5rem" }}
               >
                 <span>👤</span>
-                <span>{typograph("Демо-вход: Конкурсант")}</span>
+                <span>{typograph("Демо: гость")}</span>
               </button>
             </div>
           </div>
@@ -62,10 +62,10 @@ const Person = () => {
             <div className="d-flex align-items-center justify-content-between mb-4">
               <div>
                 <h1 className="fs-3 fw-bold text-theme-main mb-1">
-                  {typograph("Кабинет участника чемпионата")}
+                  {typograph("Личный кабинет DAO")}
                 </h1>
                 <p className="text-theme-muted mb-0" style={{ fontSize: "0.88rem" }}>
-                  {typograph("Управление токенами, репутацией и правами голоса в смарт-контракте регионального этапа")}
+                  {typograph("Управление токенами, репутацией и правами голоса в смарт-контракте DAO")}
                 </p>
               </div>
               <span className="champ-badge-cyan">МОДУЛЬ А2</span>

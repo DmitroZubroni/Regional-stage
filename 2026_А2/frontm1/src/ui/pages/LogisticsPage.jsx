@@ -76,7 +76,7 @@ export default function LogisticsPage() {
       ...postals,
     ]);
     setNewPostal({ sender: "", receiver: "", weight: "" });
-    setFeedback({ type: "success", text: `Отправление ${newId} зафиксировано в блокчейне Waves Enterprise!` });
+    setFeedback({ type: "success", text: `Отправление ${newId} добавлено в демонстрационный список.` });
   };
 
   const filteredPostals = postals.filter(
@@ -90,7 +90,7 @@ export default function LogisticsPage() {
     <div style={{ minHeight: "100vh" }}>
       <Header />
 
-      <main className="container">
+      <main id="main-content" className="container"><aside className="champ-card p-4 mb-4"><h2>Демонстрационный макет логистики</h2><p>Данные и действия на этой странице — примеры интерфейса. Почтовые операции доступны в отдельном приложении.</p><a className="champ-btn-primary" href="http://localhost:5178/">Открыть Waves Post Office</a></aside>
         {/* Banner */}
         <section className="champ-hero-card p-4 p-md-5 mb-5">
           <div className="d-flex flex-wrap align-items-center justify-content-between gap-3">
@@ -104,7 +104,7 @@ export default function LogisticsPage() {
               </h1>
               <p className="text-theme-muted mb-0" style={{ maxWidth: 640, fontSize: "0.88rem", lineHeight: 1.6 }}>
                 {typograph(
-                  "Модуль корпоративного блокчейн-реестра регионального этапа: отслеживание жизненного цикла почтовых посылок, фиксация транзитных точек и неизменяемый аудит денежных переводов."
+                  "Демонстрационный макет почтового реестра: отслеживание жизненного цикла почтовых посылок, фиксация транзитных точек и неизменяемый аудит денежных переводов."
                 )}
               </p>
             </div>
@@ -289,10 +289,10 @@ export default function LogisticsPage() {
                 <form onSubmit={handleCreatePostal}>
                   <div className="row g-3 mb-3">
                     <div className="col-md-6">
-                      <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                      <label htmlFor="logisticspage-field-1" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
                         {typograph("Пункт отправления")}
                       </label>
-                      <input
+                      <input id="logisticspage-field-1"
                         type="text"
                         className="champ-input"
                         placeholder="Например: Москва, Центральный хаб"
@@ -302,10 +302,10 @@ export default function LogisticsPage() {
                       />
                     </div>
                     <div className="col-md-6">
-                      <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                      <label htmlFor="logisticspage-field-2" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
                         {typograph("Пункт назначения")}
                       </label>
-                      <input
+                      <input id="logisticspage-field-2"
                         type="text"
                         className="champ-input"
                         placeholder="Например: Казань, Офис соревнований"
@@ -315,10 +315,10 @@ export default function LogisticsPage() {
                       />
                     </div>
                     <div className="col-md-4">
-                      <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                      <label htmlFor="logisticspage-field-3" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
                         {typograph("Вес отправления")}
                       </label>
-                      <input
+                      <input id="logisticspage-field-3"
                         type="text"
                         className="champ-input"
                         placeholder="Например: 1.5 кг"

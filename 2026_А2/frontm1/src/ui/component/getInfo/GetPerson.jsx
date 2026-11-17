@@ -3,7 +3,7 @@ import { AtlantContext } from "../../../core/context.jsx";
 import { typograph } from "../../../core/typograph";
 
 const GetPerson = () => {
-  const { person, wallet } = useContext(AtlantContext);
+  const { person, wallet, isDemo } = useContext(AtlantContext);
 
   const shortAddress = wallet
     ? `${wallet.slice(0, 10)}...${wallet.slice(-8)}`
@@ -32,7 +32,7 @@ const GetPerson = () => {
           <div>
             <div className="d-flex align-items-center gap-2 mb-1">
               <h2 className="fs-4 fw-bold text-theme-main mb-0">
-                {typograph(person.role || "Участник чемпионата")}
+                {typograph(isDemo ? "Демо-профиль DAO" : (person.role || "Участник DAO"))}
               </h2>
               <span className={person.isDAO ? "champ-badge-cyan" : "champ-badge-gold"}>
                 {person.isDAO ? "Член DAO" : "Кандидат"}
@@ -97,7 +97,7 @@ const GetPerson = () => {
               {Number(person.ksiptBalance || 0).toLocaleString("ru-RU")} KSIPT
             </div>
             <p className="text-theme-muted mb-0" style={{ fontSize: "0.78rem" }}>
-              {typograph("Управленческий токен чемпионата для голосования по кворумам.")}
+              {typograph("Управленческий токен для голосования в DAO.")}
             </p>
           </div>
         </div>
@@ -118,7 +118,7 @@ const GetPerson = () => {
               {Number(person.gerdaBalance || 0).toLocaleString("ru-RU")} GERDA
             </div>
             <p className="text-theme-muted mb-0" style={{ fontSize: "0.78rem" }}>
-              {typograph("Токен наградного пула за решение задач регионального этапа.")}
+              {typograph("Баланс токенов GERDA в вашем кошельке.")}
             </p>
           </div>
         </div>

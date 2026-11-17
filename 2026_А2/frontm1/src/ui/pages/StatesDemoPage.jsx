@@ -25,10 +25,10 @@ export default function StatesDemoPage() {
     <div style={{ minHeight: "100vh" }}>
       <Header />
 
-      <main className="container">
+      <main id="main-content" className="container">
         <section className="champ-hero-card p-4 p-md-5 mb-5">
           <div className="d-flex align-items-center gap-2 mb-2">
-            <span className="champ-badge-gold">СТАНДАРТ «КАЛИБР»</span>
+            <span className="champ-badge-gold">Предпросмотр интерфейса</span>
             <span className="champ-badge-cyan">ПРАВИЛО У1 · 4 СОСТОЯНИЯ</span>
           </div>
           <h1 className="fs-3 fw-bold text-theme-main mb-2">

@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useState, useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
@@ -28,11 +29,11 @@ const Delagated = () => {
   return (
     <div className="champ-card p-4 p-md-5 mb-4">
       <div className="d-flex align-items-center gap-2.5 mb-2">
-        <span style={{ fontSize: 24 }}>🤝</span>
+        <Icon kind="transfer" />
         <div>
-          <h3 className="fs-5 fw-bold text-theme-main mb-0">
+          <h2 className="fs-5 fw-bold text-theme-main mb-0">
             {typograph("Делегирование голосов доверенному эксперту")}
-          </h3>
+          </h2>
           <p className="text-theme-muted mb-0" style={{ fontSize: "0.82rem" }}>
             {typograph("Передача веса токенов в пользу выбранной позиции голосования")}
           </p>
@@ -42,10 +43,10 @@ const Delagated = () => {
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="row g-3">
           <div className="col-md-6">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+            <label htmlFor="delagated-field-1" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
               {typograph("ID предложения для делегации")}
             </label>
-            <input
+            <input id="delagated-field-1"
               type="number"
               className="champ-input mono-champ"
               value={proposalId}
@@ -56,10 +57,10 @@ const Delagated = () => {
           </div>
 
           <div className="col-md-6">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+            <label htmlFor="delagated-field-2" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
               {typograph("Количество токенов для делегирования")}
             </label>
-            <input
+            <input id="delagated-field-2"
               type="number"
               className="champ-input mono-champ"
               value={amount}

@@ -1,3 +1,4 @@
+import Icon from "../Icon.jsx";
 import { useState, useContext } from "react";
 import { AtlantContext } from "../../../core/context.jsx";
 import VotingService from "../../../servise/VotingService.jsx";
@@ -52,11 +53,11 @@ const CreateProposal = () => {
   return (
     <div className="champ-card p-4 p-md-5 mb-4">
       <div className="d-flex align-items-center gap-2.5 mb-2">
-        <span style={{ fontSize: 24 }}>📝</span>
+        <Icon kind="document" />
         <div>
-          <h3 className="fs-5 fw-bold text-theme-main mb-0">
+          <h2 className="fs-5 fw-bold text-theme-main mb-0">
             {typograph("Создание нового предложения DAO")}
-          </h3>
+          </h2>
           <p className="text-theme-muted mb-0" style={{ fontSize: "0.82rem" }}>
             {typograph("Регистрация смарт-контракта инициативы с параметрами кворума и таймера")}
           </p>
@@ -66,10 +67,10 @@ const CreateProposal = () => {
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="row g-3">
           <div className="col-md-6">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+            <label htmlFor="createproposal-field-1" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
               {typograph("Целевой контракт (Target Address)")}
             </label>
-            <input
+            <input id="createproposal-field-1"
               type="text"
               className="champ-input mono-champ"
               value={formData.target}
@@ -79,10 +80,10 @@ const CreateProposal = () => {
           </div>
 
           <div className="col-md-6">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+            <label htmlFor="createproposal-field-2" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
               {typograph("Период голосования (сек)")}
             </label>
-            <input
+            <input id="createproposal-field-2"
               type="number"
               className="champ-input"
               value={formData.period}
@@ -93,10 +94,10 @@ const CreateProposal = () => {
           </div>
 
           <div className="col-sm-4">
-            <label className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+            <label htmlFor="createproposal-field-3" className="form-label text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
               {typograph("Значение (Value)")}
             </label>
-            <input
+            <input id="createproposal-field-3"
               type="number"
               className="champ-input"
               value={formData.value}

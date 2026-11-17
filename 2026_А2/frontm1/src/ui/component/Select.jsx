@@ -142,7 +142,6 @@ export default function Select({
 
       {open && (
         <ul
-          ref={listRef}
           id={listboxId}
           role="listbox"
           aria-label={typeof label === "string" ? label : "Варианты"}
