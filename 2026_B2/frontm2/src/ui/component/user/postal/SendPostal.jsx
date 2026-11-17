@@ -1,6 +1,8 @@
+import Icon from "../../Icon.jsx";
 import {useContext, useState} from "react";
 import {Button, Form, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import {AtlantContext} from "../../../../core/context.jsx";
+import {typograph} from "../../../../core/typograph";
 
 const SendPostal = () => {
 
@@ -30,55 +32,135 @@ const SendPostal = () => {
         };
 
     return (
-        <Form onSubmit={handleSubmit} className="container2">
+        <div className="champ-card p-4 p-md-5 mb-4">
+            <div className="d-flex align-items-center gap-2.5 mb-2">
+                <Icon kind="post" />
+                <h2 className="fs-5 fw-bold text-theme-main mb-0">
+                    {typograph("Отправить посылку")}
+                </h2>
+            </div>
 
-            <h2> отправить посылку</h2>
+            <Form onSubmit={handleSubmit} className="mt-4">
+                <div className="row g-3">
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-recipient" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Адрес получателя")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-recipient"
+                                type="text"
+                                className="champ-input mono-champ"
+                                placeholder="3Nu65wwizkHH6E8KcNQyckFsfnUvyFb1qvm"
+                                autoComplete="off"
+                                onChange={(e) => setRecipient(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-            <FormGroup>
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-type" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Тип посылки")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-type"
+                                type="text"
+                                className="champ-input"
+                                placeholder="письмо / бандероль / посылка"
+                                autoComplete="off"
+                                onChange={(e) => setPostalType(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-                <FormLabel column={1}>адрес получателя </FormLabel>
-                <FormControl type="text" placeholder="3Nu65wwizkHH6E8KcNQyckFsfnUvyFb1qvm" onChange={(e) => setRecipient(e.target.value)} />
-            </FormGroup>
+                    <div className="col-sm-4">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-class" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Класс отправления")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-class"
+                                type="text"
+                                className="champ-input"
+                                placeholder="1 / 2 / 3"
+                                autoComplete="off"
+                                onChange={(e) => setPostalClass(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-            <FormGroup>
+                    <div className="col-sm-4">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-weight" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Вес, кг (не более 10)")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-weight"
+                                type="number"
+                                className="champ-input"
+                                placeholder="до 10 кг"
+                                max={11}
+                                autoComplete="off"
+                                onChange={(e) => setWeight(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-                <FormLabel column={1}> тип посылки </FormLabel>
-                <FormControl type="text" placeholder="письмо бандероль посылка" onChange={(e) => setPostalType(e.target.value)} />
-            </FormGroup>
+                    <div className="col-sm-4">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-value" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Объявленная стоимость")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-value"
+                                type="text"
+                                className="champ-input"
+                                placeholder="число для расчёта финальной цены"
+                                autoComplete="off"
+                                onChange={(e) => setimportantValue(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-            <FormGroup>
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-to" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Адрес назначения")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-to"
+                                type="text"
+                                className="champ-input"
+                                placeholder="г. Казань, ул. Кипра, 1"
+                                autoComplete="off"
+                                onChange={(e) => setAddressTo(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-                <FormLabel column={1}> класс отправления </FormLabel>
-                <FormControl type="text" placeholder="1/2/3" onChange={(e) => setPostalClass(e.target.value)} />
-            </FormGroup>
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="postal-from" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Адрес отправления")}
+                            </FormLabel>
+                            <FormControl
+                                id="postal-from"
+                                type="text"
+                                className="champ-input"
+                                placeholder="ул. Бивола, 17"
+                                autoComplete="off"
+                                onChange={(e) => setAddressFrom(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
+                </div>
 
-            <FormGroup>
-
-                <FormLabel column={1}>вес </FormLabel>
-                <FormControl type="number" placeholder="в кг не больше 10" max={11} onChange={(e) => setWeight(e.target.value)} />
-            </FormGroup>
-
-            <FormGroup>
-
-                <FormLabel column={1}> обЪявленная стоимость </FormLabel>
-                <FormControl type="text" placeholder="число для посчёта финальной цены" onChange={(e) => setimportantValue(e.target.value)} />
-            </FormGroup>
-
-            <FormGroup>
-
-                <FormLabel column={1}> адрес назначения </FormLabel>
-                <FormControl type="text" placeholder="ксипт" onChange={(e) => setAddressTo(e.target.value)} />
-            </FormGroup>
-
-            <FormGroup>
-
-                <FormLabel column={1}> адрес отправления</FormLabel>
-                <FormControl type="text" placeholder="бивола 17" onChange={(e) => setAddressFrom(e.target.value)} />
-            </FormGroup>
-
-
-            <Button variant="primary" type="submit" className="container">отправить </Button>
-        </Form>
+                <Button variant="primary" type="submit" className="champ-btn-primary mt-4" style={{ minHeight: 44 }}>
+                    {typograph("Отправить")}
+                </Button>
+            </Form>
+        </div>
     )
 }
 export default SendPostal;

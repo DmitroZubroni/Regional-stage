@@ -1,6 +1,8 @@
+import Icon from "../../Icon.jsx";
 import {useContext, useState} from "react";
 import {Button, Form, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import {AtlantContext} from "../../../../core/context.jsx";
+import {typograph} from "../../../../core/typograph";
 
 const SendTransfer = () => {
 
@@ -21,31 +23,70 @@ const SendTransfer = () => {
         ]);
     };
     return (
-        <Form onSubmit={handleSubmit} className="container2">
+        <div className="champ-card p-4 p-md-5 mb-4">
+            <div className="d-flex align-items-center gap-2.5 mb-2">
+                <Icon kind="transfer" />
+                <h2 className="fs-5 fw-bold text-theme-main mb-0">
+                    {typograph("Отправить денежный перевод")}
+                </h2>
+            </div>
 
-            <h2> отправить денежный перевод</h2>
+            <Form onSubmit={handleSubmit} className="mt-4">
+                <div className="row g-3">
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="transfer-recipient" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Адрес получателя")}
+                            </FormLabel>
+                            <FormControl
+                                id="transfer-recipient"
+                                type="text"
+                                className="champ-input mono-champ"
+                                placeholder="3Nu65wwizkHH6E8KcNQyckFsfnUvyFb1qvm"
+                                autoComplete="off"
+                                onChange={(e) => setRecipient(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-            <FormGroup>
+                    <div className="col-sm-3">
+                        <FormGroup>
+                            <FormLabel htmlFor="transfer-amount" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Сумма")}
+                            </FormLabel>
+                            <FormControl
+                                id="transfer-amount"
+                                type="text"
+                                className="champ-input mono-champ"
+                                placeholder="10"
+                                autoComplete="off"
+                                onChange={(e) => setAmount(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-                <FormLabel column={1}> адрес получателя </FormLabel>
-                <FormControl type="text" placeholder="3Nu65wwizkHH6E8KcNQyckFsfnUvyFb1qvm" onChange={(e) => setRecipient(e.target.value)} />
-            </FormGroup>
+                    <div className="col-sm-3">
+                        <FormGroup>
+                            <FormLabel htmlFor="transfer-ttl" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Время жизни, дней")}
+                            </FormLabel>
+                            <FormControl
+                                id="transfer-ttl"
+                                type="text"
+                                className="champ-input"
+                                placeholder="укажите количество дней, пока перевод будет активен"
+                                autoComplete="off"
+                                onChange={(e) => setTimeLive(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
+                </div>
 
-            <FormGroup>
-
-                <FormLabel column={1}> сумма </FormLabel>
-                <FormControl type="text" placeholder="10" onChange={(e) => setAmount(e.target.value)} />
-            </FormGroup>
-
-            <FormGroup>
-
-                <FormLabel column={1}> время жизни </FormLabel>
-                <FormControl type="text" placeholder="укажите количество дней пока перевод будет активен" onChange={(e) => setTimeLive(e.target.value)} />
-            </FormGroup>
-
-
-            <Button variant="primary" type="submit" className="container"> отправить </Button>
-        </Form>
+                <Button variant="primary" type="submit" className="champ-btn-primary mt-4" style={{ minHeight: 44 }}>
+                    {typograph("Отправить")}
+                </Button>
+            </Form>
+        </div>
     )
 }
 export default SendTransfer;

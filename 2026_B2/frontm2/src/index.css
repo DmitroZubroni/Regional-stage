@@ -192,6 +192,32 @@ body {
   border: 1px solid var(--success);
 }
 
+.champ-badge-warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--warning-soft);
+  color: var(--warning-text);
+  border: 1px solid var(--warning);
+}
+
+.champ-badge-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--danger-soft);
+  color: var(--danger-text);
+  border: 1px solid var(--danger);
+}
+
 .mono-champ {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-variant-numeric: tabular-nums;
@@ -204,4 +230,118 @@ body {
 
 .text-theme-muted {
   color: var(--text-muted) !important;
+}
+
+.bg-theme-surface {
+  background-color: var(--surface) !important;
+}
+
+.bg-theme-surface-2 {
+  background-color: var(--surface-2) !important;
+}
+
+.border-theme {
+  border-color: var(--border) !important;
+}
+
+/* Table overrides for complete dark & light adaptation (Rule Ц7) */
+.table,
+.table > :not(caption) > * > *,
+.table tbody,
+.table tr,
+.table td,
+.table th {
+  background-color: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  --bs-table-bg: transparent !important;
+  --bs-table-color: var(--text) !important;
+}
+
+/* Interactive Tabs (react-bootstrap <Tabs>), restyled onto the champ token system */
+.nav-tabs {
+  border-bottom: 1px solid var(--border);
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-tabs .nav-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 0.75rem 0.75rem 0 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: transparent;
+  isolation: isolate;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  border-color: var(--border) var(--border) transparent;
+}
+
+.champ-tab-btn {
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.champ-tab-btn:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.champ-tab-btn.active {
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  border-color: var(--border);
+  box-shadow: 0 0 12px var(--cyan-soft);
+}
+
+/* Animations (Rule Д8: killed globally under prefers-reduced-motion above) */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 24px rgba(56, 189, 248, 0.75));
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes floatAnim {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-slow {
+  animation: floatAnim 4s infinite ease-in-out;
 }

@@ -1,6 +1,8 @@
+import Icon from "../Icon.jsx";
 import {useContext, useState} from "react";
 import {Button, Form, FormControl, FormGroup, FormLabel} from "react-bootstrap";
 import {AtlantContext} from "../../../core/context.jsx";
+import {typograph} from "../../../core/typograph";
 
 const SetPersonInfo = () => {
 
@@ -18,24 +20,54 @@ const SetPersonInfo = () => {
         ]);
     };
     return (
-        <Form onSubmit={handleSubmit} className="container2">
+        <div className="champ-card p-4 p-md-5 mb-4">
+            <div className="d-flex align-items-center gap-2.5 mb-2">
+                <Icon kind="document" />
+                <h2 className="fs-5 fw-bold text-theme-main mb-0">
+                    {typograph("Изменить данные о себе")}
+                </h2>
+            </div>
 
-            <h2>изменить данные о себе</h2>
+            <Form onSubmit={handleSubmit} className="mt-4">
+                <div className="row g-3">
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="person-name" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Укажите имя")}
+                            </FormLabel>
+                            <FormControl
+                                id="person-name"
+                                type="text"
+                                className="champ-input"
+                                placeholder="Тайрон Бейби"
+                                autoComplete="name"
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
 
-            <FormGroup>
+                    <div className="col-md-6">
+                        <FormGroup>
+                            <FormLabel htmlFor="person-address" className="text-theme-main fw-semibold" style={{ fontSize: "0.85rem" }}>
+                                {typograph("Домашний адрес")}
+                            </FormLabel>
+                            <FormControl
+                                id="person-address"
+                                type="text"
+                                className="champ-input"
+                                placeholder="РТК 1.11"
+                                autoComplete="street-address"
+                                onChange={(e) => setHomeAddress(e.target.value)}
+                            />
+                        </FormGroup>
+                    </div>
+                </div>
 
-                <FormLabel column={1}> укажите имя </FormLabel>
-                <FormControl type="text" placeholder="тайрон бейби" onChange={(e) => setName(e.target.value)} />
-            </FormGroup>
-
-            <FormGroup>
-
-                <FormLabel column={1}> </FormLabel>
-                <FormControl type="text" placeholder="ртк 1.11" onChange={(e) => setHomeAddress(e.target.value)} />
-            </FormGroup>
-
-            <Button variant="primary" type="submit" className="container"> изменить </Button>
-        </Form>
+                <Button type="submit" className="champ-btn-primary mt-4" style={{ minHeight: 44 }}>
+                    {typograph("Изменить")}
+                </Button>
+            </Form>
+        </div>
     )
 }
 export default SetPersonInfo;
