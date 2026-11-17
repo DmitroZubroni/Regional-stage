@@ -1,3 +1,4 @@
+import Icon from "./Icon.jsx";
 import React from "react";
 import { typograph } from "../../core/typograph";
 
@@ -47,7 +48,7 @@ export function EmptyState({
           fontSize: 26,
         }}
       >
-        {icon || <span>📦</span>}
+        {icon || <span><Icon kind="parcel" /></span>}
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">{typograph(title)}</h2>
       <p className="text-theme-muted mx-auto mb-4" style={{ maxWidth: 460, fontSize: "0.875rem", lineHeight: 1.6 }}>
@@ -121,7 +122,7 @@ export function ErrorState({
         className="rounded-3 d-inline-flex align-items-center justify-content-center mx-auto mb-3"
         style={{ width: 56, height: 56, background: "var(--danger-soft)", border: "1px solid var(--danger)", fontSize: 26, color: "var(--danger-text)" }}
       >
-        ⚠️
+        <Icon kind="warning" />
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">{typograph(title)}</h2>
       <p className="text-theme-muted mx-auto mb-2" style={{ maxWidth: 440, fontSize: "0.875rem", lineHeight: 1.6 }}>
@@ -136,7 +137,7 @@ export function ErrorState({
       )}
       {onRetry && (
         <button onClick={onRetry} className="champ-btn-secondary" style={{ minHeight: 44, fontSize: "0.875rem", borderColor: "var(--danger)" }}>
-          🔄 {typograph(retryLabel)}
+          <Icon kind="retry" /> {typograph(retryLabel)}
         </button>
       )}
     </div>
@@ -162,7 +163,7 @@ export function SuccessState({
         className="rounded-3 d-inline-flex align-items-center justify-content-center mx-auto mb-3"
         style={{ width: 56, height: 56, background: "var(--success-soft)", border: "1px solid var(--success)", fontSize: 26, color: "var(--success-text)" }}
       >
-        ✓
+        <Icon kind="check" />
       </div>
       <h2 className="fs-5 fw-bold text-theme-main mb-1.5">{typograph(title)}</h2>
       <p className="text-theme-muted mx-auto mb-2" style={{ maxWidth: 440, fontSize: "0.875rem", lineHeight: 1.6 }}>
